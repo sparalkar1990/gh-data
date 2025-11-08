@@ -35,8 +35,8 @@ jobs:
         run: npm ci
       - name: Run Test
         run: npm run test
-      - name: Artifacts Download
-        uses: actions/upload-artifact
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: dist
@@ -54,7 +54,7 @@ jobs:
       - name: Deploy project
         run: echo "Deploying..."
       - name: Download artifacts
-        uses: actions/download-artifact
+        uses: actions/download-artifact@v5
         with:
             name: dist-files
       - name: List files
